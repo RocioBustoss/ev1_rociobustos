@@ -46,6 +46,14 @@ public class IncidenciaRepository {
         }
         return id+" No encontrada";
     }
+    public String encontrarDescripcion(int id) {
+        for (Incidencia incidencia : listaIncidencias) {
+            if(incidencia.getId() == id){
+                return "Descripcion del producto: "+incidencia.getDescripcion();
+            }
+        }
+        return id+" No encontrado";
+    }
 
 
 }

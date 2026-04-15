@@ -28,5 +28,8 @@ public class IncidenciaService {
     public String eliminarIncidencia(int id) {
         return incidenciaRepository.quitarIncidencia(id);
     }
+    public String buscarDescripcion(int id) {
+        return incidenciaRepository.encontrarDescripcion(id);
+    }
     
 }

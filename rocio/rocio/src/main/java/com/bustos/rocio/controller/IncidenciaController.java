@@ -3,6 +3,7 @@ package com.bustos.rocio.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,10 +18,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
-
-
-
 
 
 @RestController
@@ -38,8 +35,9 @@ public class IncidenciaController {
         return incidenciaService.crearIncidencia(i);
     }
 
+
     @PutMapping("actualizar/{id}")
-    public String updateIncidencia(@PathVariable int id, @RequestBody Incidencia incidenciaActualizada){
+    public String updateIncidencia(@PathVariable int id,@Valid @RequestBody Incidencia incidenciaActualizada){
         return incidenciaService.actualizarIncidencia(id, incidenciaActualizada);
     }
 
@@ -53,6 +51,12 @@ public class IncidenciaController {
         return incidenciaService.eliminarIncidencia(id);
     }
 
-    //Busqueda especifica pendiente
+    //Busqueda especifica 
+    @GetMapping("buscarDescripcion/{id}")
+    public String searchDescripcion(@PathVariable int id){
+        return incidenciaService.buscarDescripcion(id);
+    }
+    
+
 
 }
